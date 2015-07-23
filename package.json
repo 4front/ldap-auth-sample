@@ -1,0 +1,43 @@
+{
+  "name": "auth-sample",
+  "version": "0.0.1",
+  "_virtualApp": {
+    "appId": "E1_4zztt",
+    "router": [
+      {
+        "module": "express-session"
+      },
+      {
+        "module": "ldap-auth",
+        "path": "/auth",
+        "method": "post",
+        "options": {
+          "successUrl": "/admin",
+          "failureUrl": "/login"
+        }
+      },
+      {
+        "module": "authorized",
+        "options": {
+          "loginUrl": "/login",
+          "routes": {
+            "path": "/admin",
+            "allowed": {
+              "groups": "IT Administrators"
+            }
+          }
+        }
+      },
+      {
+        "path": "/logout",
+        "module": "logout",
+        "options": {
+          "redirectUrl": "/"
+        }
+      },
+      {
+        "module": "webpage"
+      }
+    ]
+  }
+}
