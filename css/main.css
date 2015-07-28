@@ -1,0 +1,10 @@
+body {
+}
+
+div.login {
+  margin: 36px auto;
+  background: #fff;
+  border-radius: 18px;
+  width: 480px;
+  position: relative;
+}

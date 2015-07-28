@@ -1,31 +1,44 @@
 {
-  "name": "auth-sample",
+  "name": "ldap-demo",
   "version": "0.0.1",
   "_virtualApp": {
-    "appId": "E1_4zztt",
+    "appId": "E1M5YsoF",
     "router": [
       {
-        "module": "express-session"
+        "module": "session",
+        "options": {
+          "timeoutMinutes": 60
+        }
       },
       {
-        "module": "ldap-auth",
+        "module": "4front-ldap-auth",
         "path": "/auth",
         "method": "post",
         "options": {
-          "successUrl": "/admin",
-          "failureUrl": "/login"
+          "successUrl": "/",
+          "failureUrl": "/loginfail"
         }
       },
       {
         "module": "authorized",
         "options": {
           "loginUrl": "/login",
-          "routes": {
-            "path": "/admin",
-            "allowed": {
-              "groups": "IT Administrators"
+          "routes": [
+            {
+              "path": "/admin*",
+              "allowed": {
+                "groups": "Data Science"
+              }
+            },
+            {
+              "path": "/offlimits*",
+              "allowed": {
+                "groups": [
+                  "Some Group I'm Not a Member Of"
+                ]
+              }
             }
-          }
+          ]
         }
       },
       {
@@ -37,6 +50,14 @@
       },
       {
         "module": "webpage"
+      },
+      {
+        "module": "custom-errors",
+        "options": {
+          "errors": {
+            "403": "errors/403.html"
+          }
+        }
       }
     ]
   }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>4front LDAP Demo</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
-  </head>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -22,8 +22,8 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-		        <li><a href="/admin/">Admin</a></li>
+		        <li><a href="/">Home</a></li>
+		        <li class="active"><a href="/admin/">Admin <span class="sr-only">(current)</span></a></li>
 		        <li><a href="/offlimits/">Off-Limits</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right" id="navbar-right-links">
@@ -33,8 +33,8 @@
 		</nav>
 
 		<div class="container">
-			<h1>Public home section</h1>
-			<div class="alert alert-info">The home page is accessible to everyone, authenticated or not. Try clicking on the Admin link above which requires the user to be logged in and also be a member of a specific LDAP group.</div>
+			<h1>Admin Section</h1>
+			<div class="alert alert-info">If you can get to this page it means you are logged in and are a member of one of the allowed LDAP groups.</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="/js/main.js"></script>
